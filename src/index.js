@@ -4,12 +4,19 @@ import "./index.css";
 import App from "./App";
 
 import { Provider } from "react-redux";
-import store from "./store";
+import { store, persistor } from "./store";
+import { PersistGate } from "redux-persist/lib/integration/react";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+        <ToastContainer className="foo" style={{ fontWeight: "bold" }} />
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
