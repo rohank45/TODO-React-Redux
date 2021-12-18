@@ -40,12 +40,23 @@ const TodoReducer = (state = initialState, action) => {
       });
 
       return {
-        todoList: state.todoList.filter((val) => val.id !== action.payload),
+        todoList: [...state.todoList.filter((e) => e.id !== action.payload)],
       };
 
     case "EDIT_TODO":
+      toast.success("Todo updated successfully!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+
       return {
-        state,
+        todoList: [
+          ...state.todoList,
+          {
+            ...state.todoList.filter((e) => e.id === action.payload.id),
+            inputValue: action.payload.newInputValue,
+          },
+        ],
       };
 
     case "EMPTY_TODO":

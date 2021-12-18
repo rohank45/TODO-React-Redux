@@ -1,4 +1,4 @@
-import IncDec from "./IncDec";
+import IncDec from "./IncDecReducer";
 import TodoReducer from "./TodoReducer";
 
 import { combineReducers } from "redux";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Inc, Dec } from "./actions";
+import { Inc, Dec } from "./actions/IncDecActions";
 
 const MainIncDec = () => {
   const value = useSelector((state) => state.IncDec);
@@ -15,7 +15,7 @@ const MainIncDec = () => {
       <div className="flex justify-center gap-4 bg-gray-600 rounded-lg p-10 ">
         <button
           title="INC"
-          onClick={() => dispatch(Inc(5))}
+          onClick={() => dispatch(Inc(1))}
           className="px-4 py-2 rounded-lg shadow-lg text-2xl bg-white"
         >
           Add
@@ -25,7 +25,7 @@ const MainIncDec = () => {
 
         <button
           title="DEC"
-          onClick={() => dispatch(Dec(5))}
+          onClick={() => dispatch(Dec(1))}
           className="px-4 py-2 rounded-lg shadow-lg text-2xl bg-white"
         >
           Del
