@@ -13,21 +13,31 @@ const TodoReducer = (state = initialState, action) => {
       );
 
       if (checkTodoExits) {
-        return toast.error("Todo is already present!", {
+        toast.error("Todo is already present!", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 3000,
         });
+
+        return {
+          todoList: [...state.todoList],
+        };
       } else if (!checkTodoLength) {
-        return toast.error("Todo should have minimum 5 characters!", {
+        toast.error("Todo should have minimum 5 characters!", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 3000,
         });
+
+        return {
+          todoList: [...state.todoList],
+        };
       }
 
       toast.success("Todo added successfully!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
       });
+
+      console.log(state.todoList);
 
       return {
         todoList: [...state.todoList, action.payload],
