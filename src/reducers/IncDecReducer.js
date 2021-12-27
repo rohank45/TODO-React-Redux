@@ -1,5 +1,7 @@
 const initialState = 0;
 
+const products = [];
+
 const IncDec = (state = initialState, action) => {
   switch (action.type) {
     case "INC":
@@ -7,6 +9,11 @@ const IncDec = (state = initialState, action) => {
 
     case "DEC":
       return state - action.payload;
+
+    case "FETCH_PRODUCT":
+      return {
+        products: [...products, action.payload],
+      };
 
     default:
       return state;
