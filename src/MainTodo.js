@@ -87,7 +87,7 @@ const MainTodo = () => {
                 )}
 
                 <div className="flex gap-2">
-                  <button
+                  {/* <button
                     onClick={(e) => {
                       e.preventDefault();
 
@@ -103,7 +103,8 @@ const MainTodo = () => {
                     className="text-2xl p-2 rounded-full shadow border bg-gray-200 hover:bg-blue-500 hover:text-white"
                   >
                     <FiEdit />
-                  </button>
+                  </button> */}
+
                   <button
                     onClick={() => dispatch(deleteTodo(curElem.id))}
                     className="text-2xl p-2 rounded-full shadow border bg-red-300 hover:bg-red-500 hover:text-white"
